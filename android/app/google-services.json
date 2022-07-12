@@ -1,0 +1,95 @@
+{
+  "project_info": {
+    "project_number": "960174335807",
+    "project_id": "vs-textiles",
+    "storage_bucket": "vs-textiles.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:960174335807:android:c05d30f0b3bc2839d6158a",
+        "android_client_info": {
+          "package_name": "co.vstextile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "960174335807-5jkdng5b4hkc5ekkpakg10iim7n9djv8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.vstextile",
+            "certificate_hash": "e16cbfcaa9ef85e7f4bf9547d8e235bf1a1a489e"
+          }
+        },
+        {
+          "client_id": "960174335807-ab8pr674rtp42vjub13djo3403821gto.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.vstextile",
+            "certificate_hash": "bd84d4f349d81666bc0a24217789c9cc9e393610"
+          }
+        },
+        {
+          "client_id": "960174335807-cmjh9pve60vo93ang6be3audn755sljh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.vstextile",
+            "certificate_hash": "1f247fdfb078d3e23caa2cc0593c336e3f6977be"
+          }
+        },
+        {
+          "client_id": "960174335807-o2fb79sm428qs3tp83frt7rqunni9a99.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.vstextile",
+            "certificate_hash": "a4fbb7f5579d59591d268058c584d7ef9fc15200"
+          }
+        },
+        {
+          "client_id": "960174335807-qlmgb9c3ccqesj9aki85jfqs9qi8eutd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.vstextile",
+            "certificate_hash": "8fe5fe099f6a5987d8db4ce56fa089db27369ba9"
+          }
+        },
+        {
+          "client_id": "960174335807-sio99guf191vmmge8fdrf6v6gi41k2dr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.vstextile",
+            "certificate_hash": "47cd54cceb703334820e729ea09371c779980a31"
+          }
+        },
+        {
+          "client_id": "960174335807-3fn81ue9tj0b0ouakpq53qtojdavrl51.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwzUbeFfb7_BJayjulZ63t0gJN7GYrZMI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "960174335807-3fn81ue9tj0b0ouakpq53qtojdavrl51.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "960174335807-9agvljgcrogjdn85t119dib69m9on1ss.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "co.vstextile",
+                "app_store_id": "123456789"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
