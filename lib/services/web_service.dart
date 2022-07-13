@@ -1,11 +1,9 @@
-import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:vstextile/models/cart/AddToCartResponse.dart';
 import 'package:vstextile/models/cart/CheckOutResponse.dart';
-import 'package:vstextile/models/news_article.dart';
 import 'package:vstextile/models/product/product_details.dart';
 import 'package:vstextile/models/product/product_list_data.dart';
 import 'package:vstextile/models/profile/UserData.dart';
@@ -38,7 +36,7 @@ class WebService {
   Future<dynamic> getProfile(String token, BuildContext context) async {
     try {
       initDio();
-      dio.options.headers["authorization"] = "Bearer ${token}";
+      dio.options.headers["authorization"] = "Bearer $token";
       final response = await dio.get(Constants.getProfile());
       if (response.statusCode == 200) {
         final result = response.data;
@@ -46,7 +44,7 @@ class WebService {
       } else {
         throw Exception("Failled to get data");
       }
-    } catch (e,s) {
+    } catch (e) {
       return handleException(e, context);
     }
     return [];
@@ -56,7 +54,7 @@ class WebService {
     dynamic finalData;
     try {
       initDio();
-      dio.options.headers["authorization"] = "Bearer ${token}";
+      dio.options.headers["authorization"] = "Bearer $token";
       dio.options.queryParameters["limit"] = "10";
       dio.options.queryParameters["offset"] = "0";
       final response = await dio.get(Constants.getCategories());
@@ -84,7 +82,7 @@ class WebService {
     dynamic finalData;
     try {
       initDio();
-      dio.options.headers["authorization"] = "Bearer ${token}";
+      dio.options.headers["authorization"] = "Bearer $token";
       final response = await dio.get(Constants.getCart());
       if (response.statusCode == 200) {
         final result = response.data;
@@ -99,7 +97,7 @@ class WebService {
       } else {
         throw Exception("Failled to get data");
       }
-    } catch (e,s) {;
+    } catch (e,s) {
     debugPrint("stacktrace ::  " + s.toString());
       await handleException(e, context);
     }
@@ -110,7 +108,7 @@ class WebService {
     dynamic finalData;
     try {
       initDio();
-      dio.options.headers["authorization"] = "Bearer ${token}";
+      dio.options.headers["authorization"] = "Bearer $token";
       final response = await dio.delete(Constants.removeCart(id));
       if (response.statusCode == 200) {
         final result = response.data;
@@ -135,7 +133,7 @@ class WebService {
     dynamic finalData;
     try {
       initDio();
-      dio.options.headers["authorization"] = "Bearer ${token}";
+      dio.options.headers["authorization"] = "Bearer $token";
       final response = await dio.delete(Constants.removeAddress(id));
       if (response.statusCode == 200) {
         final result = response.data;
@@ -159,7 +157,7 @@ class WebService {
     dynamic finalData;
     try {
       initDio();
-      dio.options.headers["authorization"] = "Bearer ${token}";
+      dio.options.headers["authorization"] = "Bearer $token";
       final response = await dio.patch(Constants.updateCart(cartID,quantity));
       if (response.statusCode == 200) {
         final result = response.data;
@@ -185,7 +183,7 @@ class WebService {
     dynamic finalData;
     try {
       initDio();
-      dio.options.headers["authorization"] = "Bearer ${token}";
+      dio.options.headers["authorization"] = "Bearer $token";
       dio.options.headers["Content-Type"] = "application/json";
       final response =
       await dio.patch(Constants.updateAddress(), data: params);
@@ -213,7 +211,7 @@ class WebService {
     dynamic finalData;
     try {
       initDio();
-      dio.options.headers["authorization"] = "Bearer ${token}";
+      dio.options.headers["authorization"] = "Bearer $token";
       dio.options.queryParameters["limit"] = "10";
       dio.options.queryParameters["offset"] = "0";
       final response = await dio.get(Constants.getProductListing(categoryID));
@@ -242,7 +240,7 @@ class WebService {
     dynamic finalData;
     try {
       initDio();
-      dio.options.headers["authorization"] = "Bearer ${token}";
+      dio.options.headers["authorization"] = "Bearer $token";
       final response = await dio.get(Constants.getProductDetails(productID));
       if (response.statusCode == 200) {
         final result = response.data;
@@ -268,7 +266,7 @@ class WebService {
     dynamic finalData;
     try {
       initDio();
-      dio.options.headers["authorization"] = "Bearer ${token}";
+      dio.options.headers["authorization"] = "Bearer $token";
       final response = await dio.get(Constants.getHomeFeed());
       if (response.statusCode == 200) {
         final result = response.data;
@@ -293,7 +291,7 @@ class WebService {
     dynamic finalData;
     try {
       initDio();
-      dio.options.headers["authorization"] = "Bearer ${token}";
+      dio.options.headers["authorization"] = "Bearer $token";
       final response = await dio.get(Constants.getAddress());
       if (response.statusCode == 200) {
         final result = response.data;
@@ -317,7 +315,7 @@ class WebService {
     dynamic finalData;
     try {
       initDio();
-      dio.options.headers["authorization"] = "Bearer ${token}";
+      dio.options.headers["authorization"] = "Bearer $token";
       final response = await dio.get(Constants.getOrders());
       if (response.statusCode == 200) {
         final result = response.data;
@@ -343,7 +341,7 @@ class WebService {
     dynamic finalData;
     try {
       initDio();
-      dio.options.headers["authorization"] = "Bearer ${token}";
+      dio.options.headers["authorization"] = "Bearer $token";
       dio.options.headers["Content-Type"] = "application/json";
       final response =
           await dio.post(Constants.editProfile(token), data: params);
@@ -371,7 +369,7 @@ class WebService {
     dynamic finalData;
     try {
       initDio();
-      dio.options.headers["authorization"] = "Bearer ${token}";
+      dio.options.headers["authorization"] = "Bearer $token";
       dio.options.headers["Content-Type"] = "application/json";
       final response =
           await dio.post(Constants.addProfile(token), data: params);
@@ -399,7 +397,7 @@ class WebService {
     dynamic finalData;
     try {
       initDio();
-      dio.options.headers["authorization"] = "Bearer ${token}";
+      dio.options.headers["authorization"] = "Bearer $token";
       dio.options.headers["Content-Type"] = "application/json";
       final response =
           await dio.post(Constants.addToCart(),data:params);
@@ -427,7 +425,7 @@ class WebService {
     dynamic finalData;
     try {
       initDio();
-      dio.options.headers["authorization"] = "Bearer ${token}";
+      dio.options.headers["authorization"] = "Bearer $token";
       dio.options.headers["Content-Type"] = "application/json";
       final response =
           await dio.post(Constants.productCheckout(),data:params);
@@ -456,7 +454,7 @@ class WebService {
     dynamic finalData;
     try {
       initDio();
-      dio.options.headers["authorization"] = "Bearer ${token}";
+      dio.options.headers["authorization"] = "Bearer $token";
       dio.options.headers["Content-Type"] = "application/json";
       final response =
           await dio.post(Constants.checkoutcart(),data:params);
@@ -493,7 +491,7 @@ class WebService {
     dynamic finalData;
     try {
       initDio();
-      dio.options.headers["authorization"] = "Bearer ${token}";
+      dio.options.headers["authorization"] = "Bearer $token";
       dio.options.headers["Content-Type"] = "application/json";
       final response =
       await dio.post(Constants.addAddress(), data: params);
@@ -518,7 +516,7 @@ class WebService {
   dynamic handleException( e, BuildContext context) {
     if (e is DioError) {
       final errorMessage =
-          DioExceptions.fromDioError(e as DioError, context).toString();
+          DioExceptions.fromDioError(e, context).toString();
       print(errorMessage);
       if (errorMessage != "User not found.")
         Fluttertoast.showToast(

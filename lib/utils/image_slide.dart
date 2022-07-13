@@ -1,9 +1,6 @@
 //
-import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:vstextile/screen/home_screen.dart';
 
 
 final List<String> imgList = [

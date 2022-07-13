@@ -129,10 +129,7 @@ class ProductData {
 
 
   String getDiscount(){
-    if(finalPrice != null && price != null){
-      return "₹ "+(double.parse(price) - double.parse(finalPrice)).toString();
-    }
-    return "";
+    return "₹ "+(double.parse(price) - double.parse(finalPrice)).toString();
   }
 
 }

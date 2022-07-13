@@ -1,16 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
-import 'package:razorpay_flutter/razorpay_flutter.dart';
 import 'package:vstextile/screen/product_details_screen.dart';
 import 'package:vstextile/utils/amplitude.dart';
 import 'package:vstextile/utils/colors.dart';
-import 'package:vstextile/utils/constant.dart';
 import 'package:vstextile/viewmodels/cart_viewmodel.dart';
-import 'package:vstextile/widgets/quantity.dart';
 
 import '../models/cart/Cart.dart';
 import 'checkout_screen.dart';

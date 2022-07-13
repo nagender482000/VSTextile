@@ -1,12 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:vstextile/models/profile/UserData.dart';
 import 'package:vstextile/screen/edit_profile_screen.dart';
 import 'package:vstextile/screen/home_screen.dart';
-import 'package:vstextile/trial.dart';
 import 'package:vstextile/utils/amplitude.dart';
 
 import '../models/ListProfileSection.dart';
@@ -214,7 +212,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             )).then((value) {
                           fetchTokenAndCallApi();
                         });
-                        ;
                       },
                       child: Row(
                         children: [
@@ -248,10 +245,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
       return InkWell(
           splashColor: Colors.teal.shade200,
           onTap: () {
-            if (listSection.widget != null) {
-              Navigator.of(context).push(new MaterialPageRoute(
-                  builder: (context) => listSection.widget));
-            }
+            Navigator.of(context).push(new MaterialPageRoute(
+                builder: (context) => listSection.widget));
           },
           child: Container(
               color: Colors.white,

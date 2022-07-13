@@ -1,28 +1,20 @@
 import 'dart:async';
 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:vstextile/models/home/Categories.dart';
 import 'package:vstextile/models/home/HomeData.dart';
 import 'package:vstextile/models/home/collections.dart';
-import 'package:vstextile/screen/categories_screen.dart';
-import 'package:vstextile/screen/login_screen_second.dart';
+import 'package:vstextile/providers/firebase_dynamic_link.dart';
 import 'package:vstextile/screen/product_details_screen.dart';
 import 'package:vstextile/screen/product_listing_screen.dart';
-import 'package:vstextile/trial.dart';
 import 'package:vstextile/utils/amplitude.dart';
 import 'package:vstextile/utils/colors.dart';
-import 'package:vstextile/utils/constant.dart';
 import 'package:vstextile/utils/custom_slider.dart';
-import 'package:vstextile/utils/image_slide.dart';
 import 'package:vstextile/viewmodels/home_viewmodel.dart';
 
-import '../models/home/carousel.dart';
 import 'cart_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -34,11 +26,37 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   HomeData? homeData;
+  final FirebaseDynamicLinkService _dynamicLinkService =
+      FirebaseDynamicLinkService();
+  Timer? _timerLink;
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      _timerLink = new Timer(
+        const Duration(milliseconds: 1000),
+        () {
+          FirebaseDynamicLinkService.initDynamicLink(context);
+        },
+      );
+    }
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    if (_timerLink != null) {
+      _timerLink!.cancel();
+    }
+    super.dispose();
+  }
 
   @override
   void initState() {
+    WidgetsBinding.instance.addObserver(this);
+
     // TODO: implement initState
     super.initState();
     fetchTokenAndCallApi();

@@ -5,7 +5,6 @@ import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:vstextile/models/news_article.dart';
 import 'package:vstextile/models/profile/UserData.dart';
 import 'package:vstextile/services/web_service.dart';
 
@@ -22,7 +21,7 @@ class ProfileViewModel with ChangeNotifier {
   dynamic getProfile(BuildContext context) async {
     this.loadingStatus = LoadingStatus.searching;
     notifyListeners();
-    final user = await FirebaseAuth.instance.currentUser!;
+    final user = FirebaseAuth.instance.currentUser!;
     final idToken = await user.getIdToken();
     dynamic result = await WebService().getProfile(idToken, context);
     dynamic finalData;
@@ -65,7 +64,7 @@ class ProfileViewModel with ChangeNotifier {
     };
     this.loadingStatus = LoadingStatus.searching;
     //notifyListeners();
-    final user = await FirebaseAuth.instance.currentUser!;
+    final user = FirebaseAuth.instance.currentUser!;
     final idToken = await user.getIdToken();
 
     dynamic result = "";

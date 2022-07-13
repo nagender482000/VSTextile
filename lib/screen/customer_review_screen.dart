@@ -1,10 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:vstextile/screen/product_details_screen.dart';
 import 'package:vstextile/utils/colors.dart';
-import 'package:vstextile/utils/constant.dart';
 
 import 'cart_screen.dart';
 

@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:vstextile/utils/walkthrough.dart';
 
-import '../screen/edit_profile_screen.dart';
 import '../utils/colors.dart';
 import 'bottombar.dart';
-import 'cart_screen.dart';
 
 class OrderSuccessScreen extends StatefulWidget {
   @override

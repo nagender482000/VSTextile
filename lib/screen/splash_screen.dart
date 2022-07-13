@@ -1,15 +1,12 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:vstextile/screen/benefit_screen.dart';
-import 'package:vstextile/screen/home_screen.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:vstextile/screen/login_screen.dart';
-import 'package:vstextile/screen/login_screen_second.dart';
-import 'package:vstextile/trial.dart';
+import 'package:vstextile/screen/update_page.dart';
 
 import 'bottombar.dart';
 
@@ -23,36 +20,57 @@ class SplashScreen extends StatefulWidget {
 //var isLoggedIn = false;
 
 class _SplashScreenState extends State<SplashScreen> {
+  int reqversion = 0;
+  int curversion = 0;
+  setupRemoteConfig() async {
+    final RemoteConfig remoteConfig = RemoteConfig.instance;
+    PackageInfo packageInfo = await PackageInfo.fromPlatform();
+
+    await remoteConfig.fetch();
+    await remoteConfig.activate();
+    reqversion = remoteConfig.getInt("build_number");
+    curversion = int.parse(packageInfo.buildNumber);
+  }
+
   @override
   void initState() {
     super.initState();
     Timer(
         const Duration(seconds: 3),
         () async => {
-              if (FirebaseAuth.instance.currentUser != null)
+              if (reqversion > curversion)
                 {
-                  Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(
-                      builder: (BuildContext context) => HomePage(),
-                    ),
+                  Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(builder: (context) => const UpdatePage()),
                     (route) => false,
                   )
                 }
               else
-                Navigator.pushAndRemoveUntil(
-                  context,
-                  MaterialPageRoute(
-                    builder: (BuildContext context) => LoginScreen(),
-                  ),
-                  (route) => false,
-                )
+                {
+                  if (FirebaseAuth.instance.currentUser != null)
+                    {
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => HomePage(),
+                        ),
+                        (route) => false,
+                      )
+                    }
+                  else
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) => LoginScreen(),
+                      ),
+                      (route) => false,
+                    )
+                }
             });
   }
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(

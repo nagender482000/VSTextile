@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
@@ -7,10 +6,8 @@ import 'package:vstextile/models/product/product_list_data.dart';
 import 'package:vstextile/screen/product_details_screen.dart';
 import 'package:vstextile/utils/amplitude.dart';
 import 'package:vstextile/utils/colors.dart';
-import 'package:vstextile/utils/constant.dart';
 import 'package:vstextile/viewmodels/product_listing_viewmodel.dart';
 
-import '../models/categories/categories_data.dart';
 import 'cart_screen.dart';
 
 class ProductListingScreen extends StatefulWidget {

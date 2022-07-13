@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import 'package:vstextile/models/address/Address.dart';
@@ -10,7 +8,6 @@ import 'package:vstextile/utils/colors.dart';
 import 'package:vstextile/viewmodels/address_viewmodel.dart';
 
 import '../models/address/DeliveryAddress.dart';
-import 'checkout_screen.dart';
 
 class AddressListScreen extends StatefulWidget {
   const AddressListScreen({Key? key}) : super(key: key);

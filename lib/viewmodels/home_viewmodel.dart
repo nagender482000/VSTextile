@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:vstextile/models/home/HomeData.dart';
-import 'package:vstextile/models/news_article.dart';
 import 'package:vstextile/services/web_service.dart';
 
 enum LoadingStatus {
@@ -17,7 +16,7 @@ class HomeViewModel with ChangeNotifier {
   Future<HomeData?> getHomeFeed(BuildContext context) async {
     this.loadingStatus = LoadingStatus.searching;
     notifyListeners();
-    final user = await FirebaseAuth.instance.currentUser!;
+    final user = FirebaseAuth.instance.currentUser!;
     final idToken = await user.getIdToken();
     debugPrint("token " + idToken);
     dynamic result = await WebService().getHomeFeed(idToken,context);

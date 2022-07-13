@@ -1,13 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:vstextile/screen/home_screen.dart';
 import 'package:vstextile/screen/orders_screen.dart';
-import 'package:vstextile/screen/product_listing_screen.dart';
 import 'package:vstextile/utils/amplitude.dart';
-import 'package:vstextile/utils/constant.dart';
-import 'package:vstextile/viewmodels/profile_viewmodel.dart';
 
 import '../providers/NavigationProvider.dart';
 import '../utils/colors.dart';

@@ -1,19 +1,14 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import 'package:vstextile/screen/bottombar.dart';
-import 'package:vstextile/screen/login_screen_second.dart';
 import 'package:vstextile/utils/amplitude.dart';
 import 'package:vstextile/utils/colors.dart';
-import 'package:vstextile/utils/constant.dart';
 
 import '../models/profile/UserData.dart';
 import '../viewmodels/profile_viewmodel.dart';
-import 'home_screen.dart';
 
 class EditProfileScreen extends StatefulWidget {
   UserProfile? user;

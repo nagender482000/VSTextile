@@ -1,17 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:otp_text_field/otp_text_field.dart';
 import 'package:otp_text_field/style.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:vstextile/screen/bottombar.dart';
-import 'package:vstextile/screen/onboarding_screen.dart';
 import 'package:vstextile/utils/amplitude.dart';
 import 'package:vstextile/utils/colors.dart';
-import 'package:vstextile/utils/constant.dart';
-import 'package:amplitude_flutter/amplitude.dart';
 
 import '../viewmodels/login_viewmodel.dart';
 

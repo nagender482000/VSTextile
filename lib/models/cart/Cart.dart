@@ -1,6 +1,5 @@
 // ignore_for_file: file_names
 
-import 'package:vstextile/utils/amplitude.dart';
 
 class Cart {
   Cart({

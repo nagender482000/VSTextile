@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vstextile/screen/bottombar.dart';
 import 'package:vstextile/utils/amplitude.dart';
-import 'package:vstextile/utils/constant.dart';
 import 'package:vstextile/utils/walkthrough.dart';
 
 import '../screen/edit_profile_screen.dart';

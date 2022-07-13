@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:vstextile/screen/edit_profile_screen.dart';
 
 class Walkthrough extends StatefulWidget {
   final title;

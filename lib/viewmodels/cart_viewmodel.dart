@@ -2,12 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:vstextile/models/cart/Cart.dart';
-import 'package:vstextile/models/home/HomeData.dart';
-import 'package:vstextile/models/categories/categories_data.dart';
-import 'package:vstextile/models/news_article.dart';
 import 'package:vstextile/services/web_service.dart';
 
-import '../models/address/Address.dart';
 import '../models/address/DeliveryAddress.dart';
 import '../models/cart/CheckOutResponse.dart';
 
@@ -23,7 +19,7 @@ class CartViewModel with ChangeNotifier {
   Future<Cart> getCart(BuildContext context) async {
     this.loadingStatus = LoadingStatus.searching;
     notifyListeners();
-    final user = await FirebaseAuth.instance.currentUser!;
+    final user = FirebaseAuth.instance.currentUser!;
     final idToken = await user.getIdToken();
     debugPrint("token " + idToken);
     dynamic result = await WebService().getCart(idToken, context);
@@ -38,7 +34,7 @@ class CartViewModel with ChangeNotifier {
   Future<Cart> removeCart(BuildContext context,int id) async {
     this.loadingStatus = LoadingStatus.searching;
     notifyListeners();
-    final user = await FirebaseAuth.instance.currentUser!;
+    final user = FirebaseAuth.instance.currentUser!;
     final idToken = await user.getIdToken();
     debugPrint("token " + idToken);
     dynamic result = await WebService().removeCart(idToken, context,id);
@@ -50,7 +46,7 @@ class CartViewModel with ChangeNotifier {
   Future<Cart> updateCart(BuildContext context,int cartID, int quantity) async {
     this.loadingStatus = LoadingStatus.searching;
     notifyListeners();
-    final user = await FirebaseAuth.instance.currentUser!;
+    final user = FirebaseAuth.instance.currentUser!;
     final idToken = await user.getIdToken();
     debugPrint("token " + idToken);
     dynamic result = await WebService().updateCart(idToken, context,cartID,quantity);
@@ -63,7 +59,7 @@ class CartViewModel with ChangeNotifier {
   Future<DeliveryAddress?> getAddress(BuildContext context) async {
     this.loadingStatus = LoadingStatus.searching;
     notifyListeners();
-    final user = await FirebaseAuth.instance.currentUser!;
+    final user = FirebaseAuth.instance.currentUser!;
     final idToken = await user.getIdToken();
     debugPrint("token " + idToken);
     dynamic result = await WebService().getAddress(idToken,context);
@@ -87,20 +83,20 @@ class CartViewModel with ChangeNotifier {
   }
 
 
-  dynamic productcheckOut(BuildContext context,String amount,int varaint,int quantity,int address_id) async {
+  dynamic productcheckOut(BuildContext context,String amount,int varaint,int quantity,int addressId) async {
 
     this.loadingStatus = LoadingStatus.searching;
     notifyListeners();
 
     var params = {
-      "address_id":address_id,
+      "address_id":addressId,
       "varaint":varaint,
       "quantity": quantity,
       "amount": amount,
     };
 
     debugPrint("params $params");
-    final user = await FirebaseAuth.instance.currentUser!;
+    final user = FirebaseAuth.instance.currentUser!;
     final idToken = await user.getIdToken();
     dynamic result = await WebService().productCheckout(context,idToken,params);
     dynamic finalData;
@@ -121,18 +117,18 @@ class CartViewModel with ChangeNotifier {
     return finalData;
   }
 
-  dynamic checkoutcart(BuildContext context,String amount,int address_id) async {
+  dynamic checkoutcart(BuildContext context,String amount,int addressId) async {
 
     this.loadingStatus = LoadingStatus.searching;
     notifyListeners();
 
     var params = {
-      "address_id":address_id,
+      "address_id":addressId,
       "amount": amount,
     };
 
     debugPrint("params $params");
-    final user = await FirebaseAuth.instance.currentUser!;
+    final user = FirebaseAuth.instance.currentUser!;
     final idToken = await user.getIdToken();
     dynamic result = await WebService().checkoutcart(context,idToken,params);
     dynamic finalData;

@@ -616,7 +616,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                       fontSize: 12),
                 ),
                 const SizedBox(width: 10),
-                if (totalAmount != null && totalAmount > 0)
+                if (totalAmount > 0)
                   Text(
                     "- \₹" + "${(totalAmount * _currentSliderValue) / 100}",
                     style: const TextStyle(
@@ -852,12 +852,12 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
     // after the SecondScreen result comes back update the Text widget with it
     setState(() {
       addressID = (result as AddressData).id;
-      addressData = (result as AddressData);
+      addressData = result;
 
       var length = address?.data?.length ?? 0;
       if (length == 0) {
         address = Address(data: []);
-        address?.data?.add((result as AddressData));
+        address?.data?.add(result);
       }
     });
   }
@@ -874,7 +874,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
     setState(() {
       addressID =
           (result as DeliveryAddress).deliveryAddresses.data?.first.id ?? 0;
-      addressData = (result as DeliveryAddress).deliveryAddresses.data?.first;
+      addressData = (result).deliveryAddresses.data?.first;
 
       var length = address?.data?.length ?? 0;
       if (length == 0) {

@@ -8,7 +8,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import 'package:vstextile/models/address/Address.dart';
-import 'package:vstextile/utils/amplitude.dart';
 import 'package:vstextile/utils/colors.dart';
 import 'package:vstextile/viewmodels/address_viewmodel.dart';
 

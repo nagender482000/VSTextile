@@ -2,11 +2,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:vstextile/models/categories/categories_data.dart';
 import 'package:vstextile/models/home/carousel.dart';
+import 'package:vstextile/providers/firebase_dynamic_link.dart';
 import 'package:vstextile/utils/amplitude.dart';
-import 'package:vstextile/utils/constant.dart';
 
 class CustomeCarouselHomePage extends StatefulWidget {
   final List<CarouselItemData> items;
@@ -58,7 +59,8 @@ class _CustomeCarouselHomePageState extends State<CustomeCarouselHomePage> {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      clipBehavior: Clip.none, children: <Widget>[
+      clipBehavior: Clip.none,
+      children: <Widget>[
         GestureDetector(
             onTap: () {
               debugPrint("CLicked ==============================");
@@ -129,8 +131,8 @@ class _CustomeCarouselHomePageState extends State<CustomeCarouselHomePage> {
 
 class BasicDemo extends StatefulWidget {
   final List<ImageArrayData> items;
-
-  BasicDemo({required this.items});
+  final String id;
+  BasicDemo({required this.items, required this.id});
 
   @override
   _BasicDemo createState() => _BasicDemo();
@@ -204,8 +206,11 @@ class _BasicDemo extends State<BasicDemo> {
           right: 15,
           bottom: 15,
           child: GestureDetector(
-              onTap: () {
+              onTap: () async {
                 analytics.logEvent(share_product);
+                var link = await FirebaseDynamicLinkService.createDynamicLink(
+                    true, widget.id);
+                Share.share(link);
               },
               child: SvgPicture.asset("assets/images/ic_share.svg"))),
     ]);

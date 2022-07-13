@@ -1,14 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:vstextile/models/home/HomeData.dart';
-import 'package:vstextile/models/categories/categories_data.dart';
-import 'package:vstextile/models/news_article.dart';
 import 'package:vstextile/services/web_service.dart';
 import 'package:vstextile/utils/amplitude.dart';
-import 'package:vstextile/utils/constant.dart';
 
-import '../models/product/product_list_data.dart';
 import '../models/profile/UserData.dart';
 import '../screen/bottombar.dart';
 import '../screen/edit_profile_screen.dart';
@@ -96,7 +91,7 @@ class LoginViewModel with ChangeNotifier {
   dynamic getProfile(BuildContext context) async {
     loadingStatus = LoadingStatus.searching;
     notifyListeners();
-    final user = await FirebaseAuth.instance.currentUser!;
+    final user = FirebaseAuth.instance.currentUser!;
     final idToken = await user.getIdToken();
     dynamic result = await WebService().getProfile(idToken, context);
     dynamic finalData;
@@ -155,7 +150,7 @@ class LoginViewModel with ChangeNotifier {
 
   void redirection(context) async {
     final prefs = await SharedPreferences.getInstance();
-    bool? isWalkthroughShown = await prefs.getBool("walkthroughShown");
+    bool? isWalkthroughShown = prefs.getBool("walkthroughShown");
     if (isWalkthroughShown != null && isWalkthroughShown)
       Navigator.push(
         context,

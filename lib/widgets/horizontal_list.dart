@@ -1,11 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:vstextile/models/product/variant.dart';
 import 'package:vstextile/utils/amplitude.dart';
-import 'package:vstextile/utils/constant.dart';
 
 import '../utils/colors.dart';
-import 'color_list.dart';
 
 class HorizontalList extends StatefulWidget {
   final Variant? variant;

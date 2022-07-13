@@ -1,5 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -16,9 +14,7 @@ import '../utils/colors.dart';
 import '../utils/custom_slider.dart';
 import 'package:vstextile/utils/constant.dart';
 
-import '../widgets/color_list.dart';
 import '../widgets/horizontal_list.dart';
-import '../widgets/quantity.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
   final int? productID;
@@ -221,7 +217,10 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   Widget buildView() {
     return ListView(padding: EdgeInsets.zero, children: [
       if (productDetails != null)
-        BasicDemo(items: productDetails?.product.images.data ?? []),
+        BasicDemo(
+          items: productDetails?.product.images.data ?? [],
+          id: widget.productID.toString(),
+        ),
       const SizedBox(
         height: 30,
       ),
@@ -340,7 +339,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                 ),
                                 SizedBox(width: 15),
                                 Text(
-                                  "${_quantity}",
+                                  "$_quantity",
                                 ),
                                 SizedBox(width: 15),
                                 GestureDetector(

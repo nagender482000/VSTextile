@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:vstextile/models/cart/Cart.dart';
-import 'package:vstextile/screen/product_details_screen.dart';
 
 import '../utils/colors.dart';
 typedef void QuantityCallback(int val);
