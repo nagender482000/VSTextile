@@ -200,8 +200,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               margin: const EdgeInsets.only(top: 15, left: 20, right: 20),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  minimumSize: const Size.fromHeight(40),
-                  primary: CustomColors.app_secondary_color,
+                  minimumSize: const Size.fromHeight(40), backgroundColor: CustomColors.app_secondary_color,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5), // <-- Radius
                   ),

@@ -51,7 +51,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
           Data(url: widget.productDetails?.product.images.data.first.url);
       thumbnailData.add(listData);
       totalAmount =
-          double.parse(widget.productDetails?.product.final_price ?? "0");
+          double.parse(widget.productDetails?.product.finalPrice ?? "0");
       Thumbnail thumbnail = Thumbnail(data: thumbnailData, error: false);
 
       CartData data = CartData(
@@ -701,7 +701,6 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
     ]));
   }
 
-  var _isLoading = false;
 
   Widget showWidget(CartViewModel vs) {
     // switch (vs.loadingStatus) {

@@ -1,6 +1,5 @@
-
 import 'package:dio/dio.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:vstextile/models/cart/AddToCartResponse.dart';
 import 'package:vstextile/models/cart/CheckOutResponse.dart';
@@ -47,7 +46,6 @@ class WebService {
     } catch (e) {
       return handleException(e, context);
     }
-    return [];
   }
 
   Future<dynamic> getCategories(String token, BuildContext context) async {
@@ -62,10 +60,9 @@ class WebService {
         final result = response.data;
         if (result is String) {
           finalData = result;
-        }
-        else{
+        } else {
           Map<String, dynamic> data =
-          Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
+              Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
           finalData = CategoriesData.fromJson(data);
         }
       } else {
@@ -77,7 +74,6 @@ class WebService {
     return finalData;
   }
 
-
   Future<dynamic> getCart(String token, BuildContext context) async {
     dynamic finalData;
     try {
@@ -88,23 +84,22 @@ class WebService {
         final result = response.data;
         if (result is String) {
           finalData = result;
-        }
-        else{
+        } else {
           Map<String, dynamic> data =
-          Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
+              Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
           finalData = Cart.fromJson(data);
         }
       } else {
         throw Exception("Failled to get data");
       }
-    } catch (e,s) {
-    debugPrint("stacktrace ::  " + s.toString());
+    } catch (e, s) {
+      debugPrint("stacktrace ::  " + s.toString());
       await handleException(e, context);
     }
     return finalData;
   }
 
-  Future<dynamic> removeCart(String token, BuildContext context,int id) async {
+  Future<dynamic> removeCart(String token, BuildContext context, int id) async {
     dynamic finalData;
     try {
       initDio();
@@ -114,10 +109,9 @@ class WebService {
         final result = response.data;
         if (result is String) {
           finalData = result;
-        }
-        else{
+        } else {
           Map<String, dynamic> data =
-          Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
+              Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
           finalData = Cart.fromJson(data);
         }
       } else {
@@ -129,7 +123,8 @@ class WebService {
     return finalData;
   }
 
-  Future<dynamic> removeAddres(String token, BuildContext context,int id) async {
+  Future<dynamic> removeAddres(
+      String token, BuildContext context, int id) async {
     dynamic finalData;
     try {
       initDio();
@@ -139,10 +134,9 @@ class WebService {
         final result = response.data;
         if (result is String) {
           finalData = result;
-        }
-        else{
+        } else {
           Map<String, dynamic> data =
-          Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
+              Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
           finalData = Address.fromJson(data);
         }
       } else {
@@ -153,20 +147,21 @@ class WebService {
     }
     return finalData;
   }
-  Future<dynamic> updateCart(String token, BuildContext context,int cartID,int quantity) async {
+
+  Future<dynamic> updateCart(
+      String token, BuildContext context, int cartID, int quantity) async {
     dynamic finalData;
     try {
       initDio();
       dio.options.headers["authorization"] = "Bearer $token";
-      final response = await dio.patch(Constants.updateCart(cartID,quantity));
+      final response = await dio.patch(Constants.updateCart(cartID, quantity));
       if (response.statusCode == 200) {
         final result = response.data;
         if (result is String) {
           finalData = result;
-        }
-        else{
+        } else {
           Map<String, dynamic> data =
-          Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
+              Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
           finalData = Cart.fromJson(data);
         }
       } else {
@@ -185,16 +180,14 @@ class WebService {
       initDio();
       dio.options.headers["authorization"] = "Bearer $token";
       dio.options.headers["Content-Type"] = "application/json";
-      final response =
-      await dio.patch(Constants.updateAddress(), data: params);
-      if (response. statusCode == 200) {
+      final response = await dio.patch(Constants.updateAddress(), data: params);
+      if (response.statusCode == 200) {
         final result = response.data;
         if (result is String) {
           finalData = result;
-        }
-        else{
+        } else {
           Map<String, dynamic> data =
-          Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
+              Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
           finalData = DeliveryAddress.fromJson(data);
         }
       } else {
@@ -219,16 +212,15 @@ class WebService {
         final result = response.data;
         if (result is String) {
           finalData = result;
-        }
-        else{
+        } else {
           Map<String, dynamic> data =
-          Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
+              Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
           finalData = ProductListData.fromJson(data);
         }
       } else {
         throw Exception("Failled to get data");
       }
-    } catch (e,s) {
+    } catch (e, s) {
       print('Stacktrace: ' + s.toString());
       handleException(e, context);
     }
@@ -246,16 +238,15 @@ class WebService {
         final result = response.data;
         if (result is String) {
           finalData = result;
-        }
-        else{
+        } else {
           Map<String, dynamic> data =
-          Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
+              Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
           finalData = ProductDetails.fromJson(data);
         }
       } else {
         throw Exception("Failled to get data");
       }
-    } catch (e,s) {
+    } catch (e, s) {
       print('Stacktrace: ' + s.toString());
       handleException(e, context);
     }
@@ -272,8 +263,7 @@ class WebService {
         final result = response.data;
         if (result is String) {
           finalData = result;
-        }
-       else{
+        } else {
           Map<String, dynamic> data =
               Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
           finalData = HomeData.fromJson(data);
@@ -297,8 +287,7 @@ class WebService {
         final result = response.data;
         if (result is String) {
           finalData = result;
-        }
-       else{
+        } else {
           Map<String, dynamic> data =
               Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
           finalData = DeliveryAddress.fromJson(data);
@@ -311,6 +300,7 @@ class WebService {
     }
     return finalData;
   }
+
   Future<dynamic> getOrders(String token, context) async {
     dynamic finalData;
     try {
@@ -321,8 +311,7 @@ class WebService {
         final result = response.data;
         if (result is String) {
           finalData = result;
-        }
-       else{
+        } else {
           Map<String, dynamic> data =
               Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
           finalData = Address.fromJson(data);
@@ -345,14 +334,13 @@ class WebService {
       dio.options.headers["Content-Type"] = "application/json";
       final response =
           await dio.post(Constants.editProfile(token), data: params);
-      if (response. statusCode == 200) {
+      if (response.statusCode == 200) {
         final result = response.data;
         if (result is String) {
           finalData = result;
-        }
-        else{
+        } else {
           Map<String, dynamic> data =
-          Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
+              Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
           finalData = UserData.fromJson(data);
         }
       } else {
@@ -377,50 +365,47 @@ class WebService {
         final result = response.data;
         if (result is String) {
           finalData = result;
-        }
-        else{
+        } else {
           Map<String, dynamic> data =
-          Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
+              Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
           finalData = UserData.fromJson(data);
         }
       } else {
         throw Exception("Failled to get data");
       }
     } catch (e) {
-       await handleException(e, context);
+      await handleException(e, context);
     }
     return finalData;
   }
 
-  Future<dynamic>   addToCart(
+  Future<dynamic> addToCart(
       BuildContext context, String token, Map<String, Object> params) async {
     dynamic finalData;
     try {
       initDio();
       dio.options.headers["authorization"] = "Bearer $token";
       dio.options.headers["Content-Type"] = "application/json";
-      final response =
-          await dio.post(Constants.addToCart(),data:params);
+      final response = await dio.post(Constants.addToCart(), data: params);
       if (response.statusCode == 200) {
         final result = response.data;
         if (result is String) {
           finalData = result;
-        }
-        else{
+        } else {
           Map<String, dynamic> data =
-          Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
+              Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
           finalData = AddToCartResponse.fromJson(data);
         }
       } else {
         throw Exception("Failled to get data");
       }
     } catch (e) {
-       await handleException(e, context);
+      await handleException(e, context);
     }
     return finalData;
   }
 
-  Future<dynamic>   productCheckout(
+  Future<dynamic> productCheckout(
       BuildContext context, String token, Map<String, Object> params) async {
     dynamic finalData;
     try {
@@ -428,51 +413,47 @@ class WebService {
       dio.options.headers["authorization"] = "Bearer $token";
       dio.options.headers["Content-Type"] = "application/json";
       final response =
-          await dio.post(Constants.productCheckout(),data:params);
+          await dio.post(Constants.productCheckout(), data: params);
       if (response.statusCode == 200) {
         final result = response.data;
         if (result is String) {
           finalData = result;
-        }
-        else{
+        } else {
           Map<String, dynamic> data =
-          Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
+              Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
           finalData = CheckOutResponse.fromJson(data);
         }
       } else {
         throw Exception("Failled to get data");
       }
     } catch (e) {
-       await handleException(e, context);
+      await handleException(e, context);
     }
     return finalData;
   }
 
-
-  Future<dynamic>   checkoutcart(
+  Future<dynamic> checkoutcart(
       BuildContext context, String token, Map<String, Object> params) async {
     dynamic finalData;
     try {
       initDio();
       dio.options.headers["authorization"] = "Bearer $token";
       dio.options.headers["Content-Type"] = "application/json";
-      final response =
-          await dio.post(Constants.checkoutcart(),data:params);
+      final response = await dio.post(Constants.checkoutcart(), data: params);
       if (response.statusCode == 200) {
         final result = response.data;
         if (result is String) {
           finalData = result;
-        }
-        else{
+        } else {
           Map<String, dynamic> data =
-          Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
+              Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
           finalData = CheckOutResponse.fromJson(data);
         }
       } else {
         throw Exception("Failled to get data");
       }
     } catch (e) {
-       await handleException(e, context);
+      await handleException(e, context);
     }
     return finalData;
   }
@@ -485,7 +466,6 @@ class WebService {
     return finalData;
   }
 
-
   Future<dynamic> addAddress(
       BuildContext context, String token, Map<String, Object> params) async {
     dynamic finalData;
@@ -493,16 +473,14 @@ class WebService {
       initDio();
       dio.options.headers["authorization"] = "Bearer $token";
       dio.options.headers["Content-Type"] = "application/json";
-      final response =
-      await dio.post(Constants.addAddress(), data: params);
-      if (response. statusCode == 200) {
+      final response = await dio.post(Constants.addAddress(), data: params);
+      if (response.statusCode == 200) {
         final result = response.data;
         if (result is String) {
           finalData = result;
-        }
-        else{
+        } else {
           Map<String, dynamic> data =
-          Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
+              Map<String, dynamic>.from(result as Map<dynamic, dynamic>);
           finalData = DeliveryAddress.fromJson(data);
         }
       } else {
@@ -513,10 +491,10 @@ class WebService {
     }
     return finalData;
   }
-  dynamic handleException( e, BuildContext context) {
+
+  dynamic handleException(e, BuildContext context) {
     if (e is DioError) {
-      final errorMessage =
-          DioExceptions.fromDioError(e, context).toString();
+      final errorMessage = DioExceptions.fromDioError(e, context).toString();
       print(errorMessage);
       if (errorMessage != "User not found.")
         Fluttertoast.showToast(
@@ -528,7 +506,7 @@ class WebService {
             );
       return errorMessage;
     } else {
-      print("print exceptions == "+e.toString());
+      print("print exceptions == " + e.toString());
       return e.toString();
     }
   }

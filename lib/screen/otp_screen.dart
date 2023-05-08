@@ -110,8 +110,7 @@ class _OTPScreenState extends State<OTPScreen> {
             margin: const EdgeInsets.only(top: 10, left: 20, right: 20),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                minimumSize: const Size.fromHeight(40),
-                primary: CustomColors.app_secondary_color,
+                minimumSize: const Size.fromHeight(40), backgroundColor: CustomColors.app_secondary_color,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5), // <-- Radius
                 ),
@@ -183,21 +182,5 @@ class _OTPScreenState extends State<OTPScreen> {
             )),
       ],
     );
-    switch (vs.loadingStatus) {
-      case LoadingStatus.searching:
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
-      case LoadingStatus.completed:
-        return Container(
-            margin: const EdgeInsets.all(5), child: buildScaffold(context, vs));
-      case LoadingStatus.empty:
-        return const Center(
-          child: const Text("No results found"),
-        );
-      default:
-        return Container(
-            margin: const EdgeInsets.all(5), child: buildScaffold(context, vs));
-    }
   }
 }

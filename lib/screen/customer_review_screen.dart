@@ -159,8 +159,7 @@ class _CustomerReviewScreenState extends State<CustomerReviewScreen> {
                   Expanded(
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        minimumSize: const Size.fromHeight(35),
-                        primary: CustomColors.app_secondary_color,
+                        minimumSize: const Size.fromHeight(35), backgroundColor: CustomColors.app_secondary_color,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5), // <-- Radius
                         ),

@@ -110,8 +110,7 @@ class _FilterScreenState extends State<FilterScreen> {
                                 Stack(children: <Widget>[
                                   ElevatedButton(
                                     style: ElevatedButton.styleFrom(
-                                      minimumSize: const Size.fromHeight(40),
-                                      primary: CustomColors.app_secondary_color,
+                                      minimumSize: const Size.fromHeight(40), backgroundColor: CustomColors.app_secondary_color,
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(
                                             5), // <-- Radius

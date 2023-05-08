@@ -57,7 +57,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   void initState() {
     WidgetsBinding.instance.addObserver(this);
 
-    // TODO: implement initState
     super.initState();
     fetchTokenAndCallApi();
   }
@@ -112,7 +111,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   }
 
   Widget getBody() {
-    var size = MediaQuery.of(context).size;
     return SingleChildScrollView(
         child: Column(
       mainAxisSize: MainAxisSize.min,

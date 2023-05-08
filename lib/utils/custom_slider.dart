@@ -12,7 +12,6 @@ import 'package:vstextile/utils/amplitude.dart';
 class CustomeCarouselHomePage extends StatefulWidget {
   final List<CarouselItemData> items;
   final bool enLargeCenter;
-  final CarouselController _controller = CarouselController();
 
   CustomeCarouselHomePage({required this.items, required this.enLargeCenter});
 
@@ -27,7 +26,6 @@ class _CustomeCarouselHomePageState extends State<CustomeCarouselHomePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     imageSliders = widget.items

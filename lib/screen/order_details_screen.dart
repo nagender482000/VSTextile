@@ -358,8 +358,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                             const EdgeInsets.only(top: 10, left: 20, right: 20),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            minimumSize: const Size.fromHeight(40),
-                            primary: CustomColors.text_color_light,
+                            minimumSize: const Size.fromHeight(40), backgroundColor: CustomColors.text_color_light,
                             shape: RoundedRectangleBorder(
                               borderRadius:
                                   BorderRadius.circular(5), // <-- Radius
@@ -429,7 +428,6 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
 
   Widget getBody() {
     var size = MediaQuery.of(context).size;
-    final double itemHeight = (size.height) / 3.5;
     final double itemWidth = size.width / 2;
     return GridView.count(
       scrollDirection: Axis.vertical,

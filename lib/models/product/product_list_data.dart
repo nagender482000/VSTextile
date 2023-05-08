@@ -59,7 +59,7 @@ class Products {
     required this.title,
     required this.description,
     required this.price,
-    required this.final_price,
+    required this.finalPrice,
     required this.slug,
     required this.productId,
     required this.label,
@@ -69,7 +69,7 @@ class Products {
   late final String title;
   late final String description;
   late final String price;
-  late final String final_price;
+  late final String finalPrice;
   late final String slug;
   late final String productId;
   late final String label;
@@ -83,7 +83,7 @@ class Products {
     title = json['title'];
     description = json['description'];
     price = json['price'];
-    final_price = json['final_price'] == null ?"":json["final_price"];
+    finalPrice = json['final_price'] == null ?"":json["final_price"];
     slug = json['slug'];
     productId = json['product_id'];
     label = json['label'] == null?"":json['label'] ;
@@ -98,7 +98,7 @@ class Products {
     _data['title'] = title;
     _data['description'] = description;
     _data['price'] = price;
-    _data['final_price'] = final_price;
+    _data['final_price'] = finalPrice;
     _data['slug'] = slug;
     _data['product_id'] = productId;
     _data['label'] = label;

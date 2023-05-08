@@ -301,7 +301,7 @@ class _ProductListingScreenState extends State<ProductListingScreen> {
           title: Text('Alert!'),
           content: Text("content"),
           actions: <Widget>[
-            FlatButton(
+            ElevatedButton(
               child: Text('Okay'),
               onPressed: () {
                 ///Insert here an action, in your case should be:

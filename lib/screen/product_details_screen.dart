@@ -254,7 +254,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                           const SizedBox(height: 8),
                           Row(children: [
                             Text(
-                                "₹ ${productDetails?.product.final_price ?? ""}",
+                                "₹ ${productDetails?.product.finalPrice ?? ""}",
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 15,
@@ -806,7 +806,6 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
 
   Widget getBody() {
     var size = MediaQuery.of(context).size;
-    final double itemHeight = (size.height) / 3.5;
     final double itemWidth = size.width / 2;
     return GridView.count(
       scrollDirection: Axis.vertical,
