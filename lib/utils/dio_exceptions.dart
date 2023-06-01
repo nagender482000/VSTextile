@@ -1,5 +1,3 @@
-
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -20,8 +18,8 @@ class DioExceptions implements Exception {
         message = "Receive timeout in connection with API server";
         break;
       case DioErrorType.response:
-        message =
-            _handleError(dioError.response?.statusCode!, dioError.response?.data,context);
+        message = _handleError(
+            dioError.response?.statusCode!, dioError.response?.data, context);
         break;
       case DioErrorType.sendTimeout:
         message = "Send timeout in connection with API server";
@@ -37,23 +35,29 @@ class DioExceptions implements Exception {
       case 400:
         return 'Bad request';
       case 404:
-        return error["message"].toString().replaceAll("[", "").replaceAll("]", "");
+        return error["message"]
+            .toString()
+            .replaceAll("[", "")
+            .replaceAll("]", "");
       case 403:
-        if(error["message"].toString().toLowerCase().contains("invalid token"))
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (BuildContext context) => LoginScreen(),
-          ),
-        );
-        if(error.toString().contains("invalid_fields")){
+        if (error["message"].toString().toLowerCase().contains("invalid token"))
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (BuildContext context) => LoginScreen(),
+            ),
+          );
+        if (error.toString().contains("invalid_fields")) {
           Fluttertoast.showToast(
             msg: "Invalid ${error["invalid_fields"][0]}",
             toastLength: Toast.LENGTH_SHORT,
             fontSize: 14.0,
           );
         }
-        return error["message"].toString().replaceAll("[", "").replaceAll("]", "");
+        return error["message"]
+            .toString()
+            .replaceAll("[", "")
+            .replaceAll("]", "");
       case 500:
         return 'Internal server error';
       default:

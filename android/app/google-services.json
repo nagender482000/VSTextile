@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "960174335807-4ecp6oq4ve99854pk0l4oop7q1ek49l4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.vstextile",
+            "certificate_hash": "31db498a0be7401993f7a88c5ea9eb16363a202e"
+          }
+        },
+        {
           "client_id": "960174335807-5jkdng5b4hkc5ekkpakg10iim7n9djv8.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -27,6 +35,14 @@
           "android_info": {
             "package_name": "co.vstextile",
             "certificate_hash": "bd84d4f349d81666bc0a24217789c9cc9e393610"
+          }
+        },
+        {
+          "client_id": "960174335807-cea700t87sgfo51mq9utpdd79qgj1sbd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.vstextile",
+            "certificate_hash": "48d9b3ed5ccef9932b818c3432eec6905ee76c1d"
           }
         },
         {

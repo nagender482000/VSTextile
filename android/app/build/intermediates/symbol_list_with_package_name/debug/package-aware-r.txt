@@ -20,7 +20,6 @@ attr cameraZoom
 attr circleCrop
 attr clearTop
 attr colorScheme
-attr coordinatorLayoutStyle
 attr customThemeStyle
 attr environment
 attr finishPrimaryWithSecondary
@@ -40,17 +39,11 @@ attr fragmentMode
 attr fragmentStyle
 attr imageAspectRatio
 attr imageAspectRatioAdjust
-attr keylines
+attr lStar
 attr latLngBoundsNorthEastLatitude
 attr latLngBoundsNorthEastLongitude
 attr latLngBoundsSouthWestLatitude
 attr latLngBoundsSouthWestLongitude
-attr layout_anchor
-attr layout_anchorGravity
-attr layout_behavior
-attr layout_dodgeInsetEdges
-attr layout_insetEdge
-attr layout_keyline
 attr liteMode
 attr mapType
 attr maskedWalletDetailsBackground
@@ -72,7 +65,6 @@ attr splitLayoutDirection
 attr splitMinSmallestWidth
 attr splitMinWidth
 attr splitRatio
-attr statusBarBackground
 attr toolbarTextColorStyle
 attr ttcIndex
 attr uiCompass
@@ -238,7 +230,6 @@ id action_text
 id actions
 id adjust_height
 id adjust_width
-id all
 id amp_eeInfo_btn_copyDeviceId
 id amp_eeInfo_btn_copyUserId
 id amp_eeInfo_iv_close
@@ -253,7 +244,6 @@ id async
 id auto
 id blocking
 id book_now
-id bottom
 id browser_actions_header_text
 id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
@@ -263,21 +253,12 @@ id buyButton
 id buy_now
 id buy_with
 id buy_with_google
-id center
-id center_horizontal
-id center_vertical
 id chronometer
 id classic
-id clip_horizontal
-id clip_vertical
 id dark
 id dialog_button
 id donate_with
 id donate_with_google
-id end
-id fill
-id fill_horizontal
-id fill_vertical
 id forever
 id googleMaterial2
 id google_wallet_classic
@@ -292,7 +273,6 @@ id icon_group
 id icon_only
 id info
 id italic
-id left
 id light
 id line1
 id line3
@@ -310,7 +290,6 @@ id notification_main_column
 id notification_main_column_container
 id production
 id progressBar
-id right
 id right_icon
 id right_side
 id rtl
@@ -323,7 +302,6 @@ id satellite
 id selectionDetails
 id slide
 id standard
-id start
 id strict_sandbox
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
@@ -344,7 +322,7 @@ id text
 id text2
 id time
 id title
-id top
+id view_tree_lifecycle_owner
 id wide
 id wrap_content
 integer google_play_services_version
@@ -365,6 +343,7 @@ layout rzp_magic_base
 layout toast_custom
 layout wallet_test_layout
 mipmap ic_launcher
+raw firebase_common_keep
 raw rzp_config
 string amp_label_copied
 string amp_label_copy
@@ -390,7 +369,11 @@ string common_google_play_services_wear_update_text
 string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
+string copy_toast_msg
 string default_web_client_id
+string fallback_menu_item_copy_link
+string fallback_menu_item_open_in_browser
+string fallback_menu_item_share_link
 string gcm_defaultSenderId
 string google_api_key
 string google_app_id
@@ -413,13 +396,10 @@ style WalletFragmentDefaultDetailsTextAppearance
 style WalletFragmentDefaultStyle
 style Widget_Compat_NotificationActionContainer
 style Widget_Compat_NotificationActionText
-style Widget_Support_CoordinatorLayout
 styleable ActivityFilter activityAction activityName
 styleable ActivityRule alwaysExpand
 styleable Capability queryPatterns shortcutMatchRequired
-styleable ColorStateListItem android_color android_alpha alpha
-styleable CoordinatorLayout keylines statusBarBackground
-styleable CoordinatorLayout_Layout android_layout_gravity layout_anchor layout_anchorGravity layout_behavior layout_dodgeInsetEdges layout_insetEdge layout_keyline
+styleable ColorStateListItem android_color android_alpha android_lStar alpha lStar
 styleable CustomWalletTheme customThemeStyle toolbarTextColorStyle windowTransitionStyle
 styleable FontFamily fontProviderAuthority fontProviderCerts fontProviderFetchStrategy fontProviderFetchTimeout fontProviderPackage fontProviderQuery fontProviderSystemFontFamily
 styleable FontFamilyFont android_font android_fontWeight android_fontStyle android_ttcIndex android_fontVariationSettings font fontStyle fontVariationSettings fontWeight ttcIndex
@@ -434,3 +414,5 @@ styleable SplitPlaceholderRule placeholderActivityName splitLayoutDirection spli
 styleable WalletFragmentOptions appTheme environment fragmentMode fragmentStyle
 styleable WalletFragmentStyle buyButtonAppearance buyButtonHeight buyButtonText buyButtonWidth maskedWalletDetailsBackground maskedWalletDetailsButtonBackground maskedWalletDetailsButtonTextAppearance maskedWalletDetailsHeaderTextAppearance maskedWalletDetailsLogoImageType maskedWalletDetailsLogoTextColor maskedWalletDetailsTextAppearance
 xml file_provider_path
+xml flutter_share_file_paths
+xml image_share_filepaths
